@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="kr.docs.smartaddemo.BannerActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="30dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Auto : Free x 50"
+            android:textAlignment="center" />
+
+        <kr.docs.smartad.SmartAdBanner
+            android:id="@+id/adSmall"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/holo_purple"
+            app:adv_AdOrder="Random"
+            app:adv_BannerSize="Auto"
+            app:adv_FacebookID="YOUR_PLACEMENT_ID"
+            app:adv_GoogleID="ca-app-pub-3940256099942544/1712485313"
+            app:adv_IsAutoStart="true" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Small : 320 x 50"
+            android:textAlignment="center" />
+
+        <kr.docs.smartad.SmartAdBanner
+            android:id="@+id/adSmall"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/holo_green_dark"
+            app:adv_AdOrder="Random"
+            app:adv_BannerSize="Small"
+            app:adv_FacebookID="YOUR_PLACEMENT_ID"
+            app:adv_GoogleID="ca-app-pub-3940256099942544/1712485313"
+            app:adv_IsAutoStart="true" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Large : Google (320 x 100), Facebook (320 x 90) "
+            android:textAlignment="center" />
+
+        <kr.docs.smartad.SmartAdBanner
+            android:id="@+id/adLarge"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_orange_dark"
+            app:adv_AdOrder="Random"
+            app:adv_BannerSize="Large"
+            app:adv_FacebookID="YOUR_PLACEMENT_ID"
+            app:adv_GoogleID="ca-app-pub-3940256099942544/1712485313"
+            app:adv_IsAutoStart="true">
+
+        </kr.docs.smartad.SmartAdBanner>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Rectangle : 300 x 250"
+            android:textAlignment="center" />
+
+        <kr.docs.smartad.SmartAdBanner
+            android:id="@+id/adRectangle"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            android:background="@android:color/holo_orange_light"
+            app:adv_AdOrder="Random"
+            app:adv_BannerSize="Rectangle"
+            app:adv_FacebookID="YOUR_PLACEMENT_ID"
+            app:adv_GoogleID="ca-app-pub-3940256099942544/1712485313"
+            app:adv_IsAutoStart="true" />
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
