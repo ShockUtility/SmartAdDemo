@@ -15,7 +15,10 @@ import kr.docs.smartad.SmartAdAlert;
 import kr.docs.smartad.SmartAdAward;
 import kr.docs.smartad.SmartAdInterstitial;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener
+        , SmartAdInterstitial.OnSmartAdInterstitialListener
+        , SmartAdAward.OnSmartAdAwardListener
+{
 
     int mType = 0;
 
@@ -24,7 +27,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SmartAd.addTestDevice(SmartAd.AD_TYPE_GOOGLE, "DDBBB66635665E4CCC3BAB2F16387525");
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // Setting Your Test Device Hash
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        SmartAd.addTestDevice(SmartAd.AD_TYPE_GOOGLE,   "DDBBB66635665E4CCC3BAB2F16387525");
+        SmartAd.addTestDevice(SmartAd.AD_TYPE_GOOGLE,   "E00E9E00ED1B543E38E01E0741305BC0");
+        SmartAd.addTestDevice(SmartAd.AD_TYPE_FACEBOOK, "1d421c239cf937cfb568a6d343568f5a");
+        SmartAd.addTestDevice(SmartAd.AD_TYPE_FACEBOOK, "cee0c18d9bc1e1a4027782d21b4eff9c");
+        ////////////////////////////////////////////////////////////////////////////////////////////
 
         findViewById(R.id.button1).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
@@ -60,31 +70,94 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    // 선택된 베너 표시
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // SmartAdBanner ///////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
     private void showBanner() {
         Intent intent = new Intent(this, BannerActivity.class);
-        intent.putExtra("adType", mType);
         startActivity(intent);
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // SmartAdInterstitial
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
     private void showInterstitial() {
-        SmartAdInterstitial.showAd(this, getAdOrder(), SmartAd.TEST_BANNER_GOOGLE, SmartAd.TEST_BANNER_FACEBOOK, true);
+        SmartAdInterstitial.showAd(this,
+                getAdOrder(),
+                SmartAd.TEST_BANNER_GOOGLE,     // Setting your Google ad ID
+                SmartAd.TEST_BANNER_FACEBOOK,   // Setting your Facebook ad ID
+                true);
     }
 
-    private void showAward() {
-        SmartAdAward.showAd(this, getAdOrder(), SmartAd.TEST_BANNER_GOOGLE, SmartAd.TEST_BANNER_FACEBOOK);
+    // OnSmartAdInterstitialListener
+
+    @Override
+    public void onSmartAdInterstitialDone(int type) {
+        Log.i("***", "onSmartAdInterstitialDone: "+type);
     }
+
+    @Override
+    public void onSmartAdInterstitialFail(String lastError) {
+        Log.i("***", "onSmartAdInterstitialDone: "+lastError);
+    }
+
+    @Override
+    public void onSmartAdInterstitialClose() {
+        Log.i("***", "onSmartAdInterstitialClose: ");
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // SmartAdAward
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private void showAward() {
+        SmartAdAward.showAd(this,
+                getAdOrder(),
+                SmartAd.TEST_BANNER_GOOGLE,     // Setting your Google ad ID
+                SmartAd.TEST_BANNER_FACEBOOK);  // Setting your Facebook ad ID
+    }
+
+    // OnSmartAdAwardListener
+
+    @Override
+    public void onSmartAdAwardDone(int type, boolean isAwardShow, boolean isAwardClick) {
+        Log.i("***", "onSmartAdAwardFail: "+type+", "+isAwardShow+", "+isAwardClick);
+    }
+
+    @Override
+    public void onSmartAdAwardFail(String lastError) {
+        Log.i("***", "onSmartAdAwardFail: "+lastError);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // SmartAdAlert
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
     private void showAlert() {
         SmartAdAlert.alert(this,
                 getAdOrder(),
-                SmartAd.TEST_BANNER_GOOGLE,
-                SmartAd.TEST_BANNER_FACEBOOK,
+                SmartAd.TEST_BANNER_GOOGLE,     // Setting your Google ad ID
+                SmartAd.TEST_BANNER_FACEBOOK,   // Setting your Facebook ad ID
                 "Alert Dialog",
                 new SmartAdAlert.SmartAdAlertListener() {
                     @Override
-                    public void result(@SmartAdAlert.SmartAdAlertButton int buttonType) {
+                    public void result(int buttonType) {
                         switch (buttonType) {
                             case SmartAdAlert.BUTTON_OK:
                                 Toast.makeText(MainActivity.this, "SmartAdAlert Alert : OK", Toast.LENGTH_LONG).show();
@@ -100,12 +173,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showConfirm() {
         SmartAdAlert.confirm(this,
                 getAdOrder(),
-                SmartAd.TEST_BANNER_GOOGLE,
-                SmartAd.TEST_BANNER_FACEBOOK,
+                SmartAd.TEST_BANNER_GOOGLE,     // Setting your Google ad ID
+                SmartAd.TEST_BANNER_FACEBOOK,   // Setting your Facebook ad ID
                 "Confirm Dialog",
                 new SmartAdAlert.SmartAdAlertListener() {
                     @Override
-                    public void result(@SmartAdAlert.SmartAdAlertButton int buttonType) {
+                    public void result(int buttonType) {
                         switch (buttonType) {
                             case SmartAdAlert.BUTTON_OK:
                                 Toast.makeText(MainActivity.this, "SmartAdAlert Confirm : OK", Toast.LENGTH_LONG).show();
@@ -124,14 +197,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showSelect() {
         SmartAdAlert.select(this,
                 getAdOrder(),
-                SmartAd.TEST_BANNER_GOOGLE,
-                SmartAd.TEST_BANNER_FACEBOOK,
+                SmartAd.TEST_BANNER_GOOGLE,     // Setting your Google ad ID
+                SmartAd.TEST_BANNER_FACEBOOK,   // Setting your Facebook ad ID
                 "Select Dialog",
                 "Yes",
                 "No",
                 new SmartAdAlert.SmartAdAlertListener() {
                     @Override
-                    public void result(@SmartAdAlert.SmartAdAlertButton int buttonType) {
+                    public void result(int buttonType) {
                         switch (buttonType) {
                             case SmartAdAlert.BUTTON_OK:
                                 Toast.makeText(MainActivity.this, "SmartAdAlert Select : OK", Toast.LENGTH_LONG).show();

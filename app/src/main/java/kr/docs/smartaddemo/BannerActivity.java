@@ -14,13 +14,15 @@ public class BannerActivity extends AppCompatActivity implements SmartAdBanner.O
         setContentView(R.layout.activity_banner);
     }
 
+    // OnSmartAdBannerListener
+
     @Override
     public void onSmartAdBannerDone(int type) {
-        Log.d("BannerActivity", "onSmartAdBannerDone : " + type);
+        Log.i("***", "onSmartAdBannerDone : " + type);
     }
 
     @Override
     public void onSmartAdBannerFail(String lastError) {
-        Log.d("BannerActivity", "onSmartAdBannerFail : " + lastError);
+        Log.i("***", "onSmartAdBannerFail : " + lastError);
     }
 }

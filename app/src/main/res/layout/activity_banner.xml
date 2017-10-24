@@ -25,15 +25,16 @@
             android:textAlignment="center" />
 
         <kr.docs.smartad.SmartAdBanner
-            android:id="@+id/adSmall"
+            android:id="@+id/adAuto"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:background="@android:color/holo_purple"
             app:adv_AdOrder="Random"
             app:adv_BannerSize="Auto"
+            app:adv_IsAutoStart="true"
             app:adv_FacebookID="YOUR_PLACEMENT_ID"
             app:adv_GoogleID="ca-app-pub-3940256099942544/1712485313"
-            app:adv_IsAutoStart="true" />
+            />
 
         <TextView
             android:id="@+id/textView8"
@@ -47,7 +48,7 @@
         <kr.docs.smartad.SmartAdBanner
             android:id="@+id/adSmall"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:background="@android:color/holo_green_dark"
             app:adv_AdOrder="Random"
             app:adv_BannerSize="Small"
@@ -67,7 +68,7 @@
         <kr.docs.smartad.SmartAdBanner
             android:id="@+id/adLarge"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:background="@android:color/holo_orange_dark"
             app:adv_AdOrder="Random"
             app:adv_BannerSize="Large"
@@ -89,7 +90,7 @@
         <kr.docs.smartad.SmartAdBanner
             android:id="@+id/adRectangle"
             android:layout_width="300dp"
-            android:layout_height="250dp"
+            android:layout_height="wrap_content"
             android:background="@android:color/holo_orange_light"
             app:adv_AdOrder="Random"
             app:adv_BannerSize="Rectangle"

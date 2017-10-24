@@ -85,13 +85,12 @@
         android:textAlignment="center"
         android:textColor="@android:color/black" />
 
-    <LinearLayout
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:checkedButton="@+id/radioButton1"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radioButton1"
@@ -112,6 +111,6 @@
             android:layout_height="wrap_content"
             android:text="Facebook" />
 
-    </LinearLayout>
+    </RadioGroup>
 
 </LinearLayout>
