@@ -17,12 +17,12 @@ public class BannerActivity extends AppCompatActivity implements SmartAdBanner.O
     // OnSmartAdBannerListener
 
     @Override
-    public void onSmartAdBannerDone(int type) {
-        Log.i("***", "onSmartAdBannerDone : " + type);
+    public void onSmartAdBannerDone(int adType) {
+        Log.i("***", "onSmartAdBannerDone : " + MainActivity.adTypeToString(adType));
     }
 
     @Override
-    public void onSmartAdBannerFail(String lastError) {
-        Log.i("***", "onSmartAdBannerFail : " + lastError);
+    public void onSmartAdBannerFail(int adType) {
+        Log.i("***", "onSmartAdBannerFail : " + MainActivity.adTypeToString(adType));
     }
 }

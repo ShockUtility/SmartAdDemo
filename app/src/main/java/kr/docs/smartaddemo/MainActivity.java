@@ -70,6 +70,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    static public String adTypeToString(int adType) {
+        switch (adType) {
+            case SmartAd.AD_TYPE_GOOGLE: return "Google Ad";
+            case SmartAd.AD_TYPE_FACEBOOK: return "Facebook Ad";
+        }
+        return "Pass Ad";
+    }
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -100,18 +107,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // OnSmartAdInterstitialListener
 
     @Override
-    public void onSmartAdInterstitialDone(int type) {
-        Log.i("***", "onSmartAdInterstitialDone: "+type);
+    public void onSmartAdInterstitialDone(int adType) {
+        Log.i("***", "onSmartAdInterstitialDone: "+adTypeToString(adType));
     }
 
     @Override
-    public void onSmartAdInterstitialFail(String lastError) {
-        Log.i("***", "onSmartAdInterstitialDone: "+lastError);
+    public void onSmartAdInterstitialFail(int adType) {
+        Log.i("***", "onSmartAdInterstitialDone: "+adTypeToString(adType));
     }
 
     @Override
-    public void onSmartAdInterstitialClose() {
-        Log.i("***", "onSmartAdInterstitialClose: ");
+    public void onSmartAdInterstitialClose(int adType) {
+        Log.i("***", "onSmartAdInterstitialClose: "+adTypeToString(adType));
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -132,13 +139,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // OnSmartAdAwardListener
 
     @Override
-    public void onSmartAdAwardDone(int type, boolean isAwardShow, boolean isAwardClick) {
-        Log.i("***", "onSmartAdAwardFail: "+type+", "+isAwardShow+", "+isAwardClick);
+    public void onSmartAdAwardDone(int adType, boolean isAwardShown, boolean isAwardClicked) {
+        Log.i("***", "onSmartAdAwardFail: "+adTypeToString(adType)+", Ad Shown = "+isAwardShown+", Ad Clicked = "+isAwardClicked);
     }
 
     @Override
-    public void onSmartAdAwardFail(String lastError) {
-        Log.i("***", "onSmartAdAwardFail: "+lastError);
+    public void onSmartAdAwardFail(int adType) {
+        Log.i("***", "onSmartAdAwardFail: "+adTypeToString(adType));
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
