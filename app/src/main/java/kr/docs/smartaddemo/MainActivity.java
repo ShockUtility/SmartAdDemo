@@ -13,6 +13,7 @@ import android.widget.Toast;
 import kr.docs.smartad.SmartAd;
 import kr.docs.smartad.SmartAdAlert;
 import kr.docs.smartad.SmartAdAward;
+import kr.docs.smartad.SmartAdBanner;
 import kr.docs.smartad.SmartAdInterstitial;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         , SmartAdAward.OnSmartAdAwardListener
 {
 
+    Switch swEnableAd;
     int mType = 0;
 
     @Override
@@ -27,15 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ////////////////////////////////////////////////////////////////////////////////////////////
-        // Setting Your Test Device Hash
-        ////////////////////////////////////////////////////////////////////////////////////////////
-        SmartAd.addTestDevice(SmartAd.AD_TYPE_GOOGLE,   "DDBBB66635665E4CCC3BAB2F16387525");
-        SmartAd.addTestDevice(SmartAd.AD_TYPE_GOOGLE,   "E00E9E00ED1B543E38E01E0741305BC0");
-        SmartAd.addTestDevice(SmartAd.AD_TYPE_FACEBOOK, "1d421c239cf937cfb568a6d343568f5a");
-        SmartAd.addTestDevice(SmartAd.AD_TYPE_FACEBOOK, "cee0c18d9bc1e1a4027782d21b4eff9c");
-        ////////////////////////////////////////////////////////////////////////////////////////////
-
+        swEnableAd = (Switch)findViewById(R.id.swEnableAd);
         findViewById(R.id.button1).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
         findViewById(R.id.button3).setOnClickListener(this);
@@ -46,6 +40,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.radioButton1).setOnClickListener(this);
         findViewById(R.id.radioButton2).setOnClickListener(this);
         findViewById(R.id.radioButton3).setOnClickListener(this);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // Setting Your Test Device Hash
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        SmartAd.addTestDevice(SmartAd.AD_TYPE_GOOGLE,   "DDBBB66635665E4CCC3BAB2F16387525");
+        SmartAd.addTestDevice(SmartAd.AD_TYPE_GOOGLE,   "E00E9E00ED1B543E38E01E0741305BC0");
+        SmartAd.addTestDevice(SmartAd.AD_TYPE_FACEBOOK, "1d421c239cf937cfb568a6d343568f5a");
+        SmartAd.addTestDevice(SmartAd.AD_TYPE_FACEBOOK, "cee0c18d9bc1e1a4027782d21b4eff9c");
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // Setting Enable Ad
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        SmartAd.IsShowAdFunc = new SmartAd.IsShowAdListener() {
+            @Override
+            public Class[] getAvailClass() { // without SmartAdAward
+                return new Class[] { SmartAdBanner.class, SmartAdAlert.class, SmartAdInterstitial.class };
+            }
+
+            @Override
+            public boolean isShowAd() {
+                return swEnableAd.isChecked();
+            }
+        };
+        ////////////////////////////////////////////////////////////////////////////////////////////
     }
 
     @SmartAd.SmartAdType

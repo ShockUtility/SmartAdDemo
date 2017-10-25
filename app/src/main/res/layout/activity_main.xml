@@ -9,12 +9,21 @@
     tools:context="kr.docs.smartaddemo.MainActivity">
 
 
+    <Switch
+        android:id="@+id/swEnableAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:paddingRight="10dp"
+        android:text="Enable Ad   "
+        android:textAlignment="textEnd" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Banner - XML Base"
         android:textAlignment="center"
         android:textColor="@android:color/black" />
@@ -30,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Full Screen"
         android:textAlignment="center"
         android:textColor="@android:color/black" />
@@ -52,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Dialogs"
         android:textAlignment="center"
         android:textColor="@android:color/black" />
@@ -80,7 +89,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Ad request order"
         android:textAlignment="center"
         android:textColor="@android:color/black" />
