@@ -118,8 +118,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showInterstitial() {
         SmartAdInterstitial.showAd(this,
                 getAdOrder(),
-                SmartAd.TEST_BANNER_GOOGLE,     // Setting your Google ad ID
-                SmartAd.TEST_BANNER_FACEBOOK,   // Setting your Facebook ad ID
+                getString(R.string.AD_G_INTERSTITIAL),      // Setting your Google ad ID
+                getString(R.string.AD_F_INTERSTITIAL),      // Setting your Facebook ad ID
                 true);
     }
 
@@ -151,8 +151,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showAward() {
         SmartAdAward.showAd(this,
                 getAdOrder(),
-                SmartAd.TEST_BANNER_GOOGLE,     // Setting your Google ad ID
-                SmartAd.TEST_BANNER_FACEBOOK);  // Setting your Facebook ad ID
+                getString(R.string.AD_G_AWARD),         // Setting your Google ad ID
+                getString(R.string.AD_F_AWARD));        // Setting your Facebook ad ID
     }
 
     // OnSmartAdAwardListener
@@ -178,8 +178,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showAlert() {
         SmartAdAlert.alert(this,
                 getAdOrder(),
-                SmartAd.TEST_BANNER_GOOGLE,     // Setting your Google ad ID
-                SmartAd.TEST_BANNER_FACEBOOK,   // Setting your Facebook ad ID
+                getString(R.string.AD_G_ALERT),         // Setting your Google ad ID
+                getString(R.string.AD_F_ALERT),         // Setting your Facebook ad ID
                 "Alert Dialog",
                 new SmartAdAlert.SmartAdAlertListener() {
                     @Override
@@ -199,8 +199,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showConfirm() {
         SmartAdAlert.confirm(this,
                 getAdOrder(),
-                SmartAd.TEST_BANNER_GOOGLE,     // Setting your Google ad ID
-                SmartAd.TEST_BANNER_FACEBOOK,   // Setting your Facebook ad ID
+                getString(R.string.AD_G_ALERT),         // Setting your Google ad ID
+                getString(R.string.AD_F_ALERT),         // Setting your Facebook ad ID
                 "Confirm Dialog",
                 new SmartAdAlert.SmartAdAlertListener() {
                     @Override
@@ -223,8 +223,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showSelect() {
         SmartAdAlert.select(this,
                 getAdOrder(),
-                SmartAd.TEST_BANNER_GOOGLE,     // Setting your Google ad ID
-                SmartAd.TEST_BANNER_FACEBOOK,   // Setting your Facebook ad ID
+                getString(R.string.AD_G_ALERT),         // Setting your Google ad ID
+                getString(R.string.AD_F_ALERT),         // Setting your Facebook ad ID
                 "Select Dialog",
                 "Yes",
                 "No",

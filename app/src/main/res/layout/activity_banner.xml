@@ -31,10 +31,9 @@
             android:background="@android:color/holo_purple"
             app:adv_AdOrder="Random"
             app:adv_BannerSize="Auto"
-            app:adv_IsAutoStart="true"
-            app:adv_FacebookID="YOUR_PLACEMENT_ID"
-            app:adv_GoogleID="ca-app-pub-3940256099942544/1712485313"
-            />
+            app:adv_FacebookID="@string/AD_F_BANNER"
+            app:adv_GoogleID="@string/AD_G_BANNER"
+            app:adv_IsAutoStart="true" />
 
         <TextView
             android:id="@+id/textView8"
@@ -52,8 +51,8 @@
             android:background="@android:color/holo_green_dark"
             app:adv_AdOrder="Random"
             app:adv_BannerSize="Small"
-            app:adv_FacebookID="YOUR_PLACEMENT_ID"
-            app:adv_GoogleID="ca-app-pub-3940256099942544/1712485313"
+            app:adv_FacebookID="@string/AD_F_BANNER"
+            app:adv_GoogleID="@string/AD_G_BANNER"
             app:adv_IsAutoStart="true" />
 
         <TextView
@@ -72,8 +71,8 @@
             android:background="@android:color/holo_orange_dark"
             app:adv_AdOrder="Random"
             app:adv_BannerSize="Large"
-            app:adv_FacebookID="YOUR_PLACEMENT_ID"
-            app:adv_GoogleID="ca-app-pub-3940256099942544/1712485313"
+            app:adv_FacebookID="@string/AD_F_BANNER"
+            app:adv_GoogleID="@string/AD_G_BANNER"
             app:adv_IsAutoStart="true">
 
         </kr.docs.smartad.SmartAdBanner>
@@ -94,8 +93,8 @@
             android:background="@android:color/holo_orange_light"
             app:adv_AdOrder="Random"
             app:adv_BannerSize="Rectangle"
-            app:adv_FacebookID="YOUR_PLACEMENT_ID"
-            app:adv_GoogleID="ca-app-pub-3940256099942544/1712485313"
+            app:adv_FacebookID="@string/AD_F_BANNER"
+            app:adv_GoogleID="@string/AD_G_BANNER"
             app:adv_IsAutoStart="true" />
 
     </LinearLayout>

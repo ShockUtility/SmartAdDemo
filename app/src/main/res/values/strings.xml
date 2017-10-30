@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">SmartAd Demo</string>
+
+    <string name="AD_G_BANNER">ca-app-pub-2693561479903032/5790280987</string>
+    <string name="AD_G_ALERT">ca-app-pub-2693561479903032/3163940032</string>
+    <string name="AD_G_INTERSTITIAL">ca-app-pub-2693561479903032/7419057429</string>
+    <string name="AD_G_AWARD">ca-app-pub-2693561479903032/9592906573</string>
+
+    <string name="AD_F_BANNER">142684733126386_142702443124615</string>
+    <string name="AD_F_ALERT">142684733126386_142702413124618</string>
+    <string name="AD_F_INTERSTITIAL">142684733126386_142702336457959</string>
+    <string name="AD_F_AWARD">YOUR_PLACEMENT_ID</string>
 </resources>

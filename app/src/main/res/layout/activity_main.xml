@@ -1,125 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical"
     tools:context="kr.docs.smartaddemo.MainActivity">
 
 
-    <Switch
-        android:id="@+id/swEnableAd"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:checked="true"
-        android:paddingRight="10dp"
-        android:text="Enable Ad   "
-        android:textAlignment="textEnd" />
+        android:orientation="vertical"
+        android:paddingBottom="50dp">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="15dp"
-        android:text="Banner - XML Base"
-        android:textAlignment="center"
-        android:textColor="@android:color/black" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Banner (Random Request Order)" />
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="Settings"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="15dp"
-        android:text="Full Screen"
-        android:textAlignment="center"
-        android:textColor="@android:color/black" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Interstitial" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Enable Ad"
+                android:textColor="@android:color/black" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Award " />
+            <Switch
+                android:id="@+id/swEnableAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:textAlignment="textEnd" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="15dp"
-        android:text="Dialogs"
-        android:textAlignment="center"
-        android:textColor="@android:color/black" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Alert Dialog" />
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ad request order"
+                android:textColor="@android:color/black" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Confirm Dialog" />
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/radioButton1"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select Dialog" />
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Random"
+                    android:textSize="12sp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="15dp"
-        android:text="Ad request order"
-        android:textAlignment="center"
-        android:textColor="@android:color/black" />
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Google"
+                    android:textSize="12sp" />
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:checkedButton="@+id/radioButton1"
-        android:gravity="center"
-        android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Facebook"
+                    android:textSize="12sp" />
 
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="wrap_content"
+            </RadioGroup>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="Banner - XML Base"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Random" />
+            android:text="Banner (Random Request Order)" />
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="Full Screen"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Google" />
+            android:text="Interstitial" />
 
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Facebook" />
+            android:text="Award " />
 
-    </RadioGroup>
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="Dialogs"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alert Dialog" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm Dialog" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Dialog" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -6,3 +6,5 @@
 /build
 /captures
 .externalNativeBuild
+/__RELEASE__
+/__STORE__
