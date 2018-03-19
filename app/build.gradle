@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    buildToolsVersion "26.0.3"
     defaultConfig {
         applicationId "kr.docs.smartaddemo"
         minSdkVersion 14
@@ -25,11 +25,11 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    compile 'com.google.android.gms:play-services-ads:11.0.4'
-    compile 'com.facebook.android:audience-network-sdk:4.+'
+    compile 'com.google.android.gms:play-services-ads:11.8.0'
+    compile 'com.facebook.android:audience-network-sdk:4.28.0'
     compile 'kr.docs:smart-ad:0.3.1'
 
     testCompile 'junit:junit:4.12'
