@@ -1,6 +1,8 @@
 package kr.docs.smartaddemo;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -83,9 +85,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button4      : showAlert();        break;
             case R.id.button5      : showConfirm();      break;
             case R.id.button6      : showSelect();       break;
-            case R.id.radioButton1 : mType = 0;           break;
-            case R.id.radioButton2 : mType = 1;           break;
-            case R.id.radioButton3 : mType = 2;           break;
+            case R.id.radioButton1 : mType = 0;          break;
+            case R.id.radioButton2 : mType = 1;          break;
+            case R.id.radioButton3 : mType = 2;          break;
         }
     }
 
@@ -118,8 +120,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showInterstitial() {
         SmartAdInterstitial.showAd(this,
                 getAdOrder(),
-                getString(R.string.AD_G_INTERSTITIAL),      // Setting your Google ad ID
-                getString(R.string.AD_F_INTERSTITIAL),      // Setting your Facebook ad ID
+                getString(R.string.AD_G_INTERSTITIAL),   // Setting your Google ad ID
+                getString(R.string.AD_F_INTERSTITIAL),          // Setting your Facebook ad ID
                 true);
     }
 
@@ -151,8 +153,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showAward() {
         SmartAdAward.showAd(this,
                 getAdOrder(),
-                getString(R.string.AD_G_AWARD),         // Setting your Google ad ID
-                getString(R.string.AD_F_AWARD));        // Setting your Facebook ad ID
+                getString(R.string.AD_G_AWARD),    // Setting your Google ad ID
+                getString(R.string.AD_F_AWARD));                        // Setting your Facebook ad ID
     }
 
     // OnSmartAdAwardListener
@@ -178,19 +180,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showAlert() {
         SmartAdAlert.alert(this,
                 getAdOrder(),
-                getString(R.string.AD_G_ALERT),         // Setting your Google ad ID
+                getString(R.string.AD_G_ALERT),  // Setting your Google ad ID
                 getString(R.string.AD_F_ALERT),         // Setting your Facebook ad ID
                 "Alert Dialog",
                 new SmartAdAlert.SmartAdAlertListener() {
                     @Override
                     public void result(int buttonType) {
                         switch (buttonType) {
-                            case SmartAdAlert.BUTTON_OK:
-                                Toast.makeText(MainActivity.this, "SmartAdAlert Alert : OK", Toast.LENGTH_LONG).show();
-                                break;
-                            case SmartAdAlert.BUTTON_BACK:
-                                Toast.makeText(MainActivity.this, "SmartAdAlert Alert : Back", Toast.LENGTH_LONG).show();
-                                break;
+                            case SmartAdAlert.BUTTON_OK  : Log.d("MainActivity", "SmartAdAlert Alert : OK"); break;
+                            case SmartAdAlert.BUTTON_BACK: Log.d("MainActivity", "SmartAdAlert Alert : Back"); break;
                         }
                     }
                 });
@@ -199,22 +197,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showConfirm() {
         SmartAdAlert.confirm(this,
                 getAdOrder(),
-                getString(R.string.AD_G_ALERT),         // Setting your Google ad ID
+                getString(R.string.AD_G_ALERT),  // Setting your Google ad ID
                 getString(R.string.AD_F_ALERT),         // Setting your Facebook ad ID
                 "Confirm Dialog",
                 new SmartAdAlert.SmartAdAlertListener() {
                     @Override
                     public void result(int buttonType) {
                         switch (buttonType) {
-                            case SmartAdAlert.BUTTON_OK:
-                                Toast.makeText(MainActivity.this, "SmartAdAlert Confirm : OK", Toast.LENGTH_LONG).show();
-                                break;
-                            case SmartAdAlert.BUTTON_CANCEL:
-                                Toast.makeText(MainActivity.this, "SmartAdAlert Confirm : Cancel", Toast.LENGTH_LONG).show();
-                                break;
-                            case SmartAdAlert.BUTTON_BACK:
-                                Toast.makeText(MainActivity.this, "SmartAdAlert Confirm : Back", Toast.LENGTH_LONG).show();
-                                break;
+                            case SmartAdAlert.BUTTON_OK    : Log.d("MainActivity", "SmartAdAlert Confirm : OK"); break;
+                            case SmartAdAlert.BUTTON_CANCEL: Log.d("MainActivity", "SmartAdAlert Confirm : Cancel"); break;
+                            case SmartAdAlert.BUTTON_BACK  : Log.d("MainActivity", "SmartAdAlert Confirm : Back"); break;
                         }
                     }
                 });
@@ -223,24 +215,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showSelect() {
         SmartAdAlert.select(this,
                 getAdOrder(),
-                getString(R.string.AD_G_ALERT),         // Setting your Google ad ID
+                getString(R.string.AD_G_ALERT),  // Setting your Google ad ID
                 getString(R.string.AD_F_ALERT),         // Setting your Facebook ad ID
                 "Select Dialog",
                 "Yes",
                 "No",
                 new SmartAdAlert.SmartAdAlertListener() {
                     @Override
-                    public void result(int buttonType) {
+                    public void result(final int buttonType) {
                         switch (buttonType) {
-                            case SmartAdAlert.BUTTON_OK:
-                                Toast.makeText(MainActivity.this, "SmartAdAlert Select : OK", Toast.LENGTH_LONG).show();
-                                break;
-                            case SmartAdAlert.BUTTON_CANCEL:
-                                Toast.makeText(MainActivity.this, "SmartAdAlert Select : Cancel", Toast.LENGTH_LONG).show();
-                                break;
-                            case SmartAdAlert.BUTTON_BACK:
-                                Toast.makeText(MainActivity.this, "SmartAdAlert Select : Back", Toast.LENGTH_LONG).show();
-                                break;
+                            case SmartAdAlert.BUTTON_OK    : Log.d("MainActivity", "SmartAdAlert Select : Yes"); break;
+                            case SmartAdAlert.BUTTON_CANCEL: Log.d("MainActivity", "SmartAdAlert Select : No"); break;
+                            case SmartAdAlert.BUTTON_BACK  : Log.d("MainActivity", "SmartAdAlert Select : Back"); break;
                         }
                     }
                 });
